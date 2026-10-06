@@ -14,8 +14,8 @@ Runs in your browser, stores data on your computer, and connects over SSH.
 Requires Linux, Python 3.10+, and OpenSSH. No additional Python packages are needed.
 
 ```sh
-git clone https://github.com/b1llyb0ns/vps-desk.git
-cd vps-desk
+git clone https://github.com/b1llyb0ns/local-desk.git
+cd local-desk
 python3 server.py
 ```
 
