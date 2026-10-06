@@ -1,17 +1,17 @@
 # Local Desk
 
-Локальная панель для управления Linux-компьютером и VPS. Работает в браузере,
-хранит данные на вашем компьютере, подключается к серверам по SSH.
+A local dashboard for managing your Linux computer and VPS servers.
+Runs in your browser, stores data on your computer, and connects over SSH.
 
-## Возможности
+## Features
 
-- Серверы: нагрузка, процессы, сервисы, заметки и сроки аренды.
-- Компьютер: установленные пакеты, обновления и открытые порты.
-- Задачи, дневник и учёт расходов.
+- Servers: resource usage, processes, services, notes, and renewal dates.
+- Computer: installed packages, updates, and open ports.
+- Tasks, a diary, and expense tracking.
 
-## Запуск
+## Getting started
 
-Нужны Linux, Python 3.10+ и OpenSSH. Дополнительные Python-пакеты не требуются.
+Requires Linux, Python 3.10+, and OpenSSH. No additional Python packages are needed.
 
 ```sh
 git clone https://github.com/b1llyb0ns/vps-desk.git
@@ -19,26 +19,26 @@ cd vps-desk
 python3 server.py
 ```
 
-Откройте **http://127.0.0.1:8787**.
+Open **http://127.0.0.1:8787**.
 
-Перед первым запуском нужна собственная SSH-пара `~/.ssh/id_ed25519`
-и `~/.ssh/id_ed25519.pub`. Если её ещё нет, создайте через `ssh-keygen -t ed25519`.
-Существующий ключ не перезаписывайте.
+Before starting, you need your own SSH key pair at `~/.ssh/id_ed25519`
+and `~/.ssh/id_ed25519.pub`. If you do not have one, create it with
+`ssh-keygen -t ed25519`. Do not overwrite an existing key.
 
-Новая установка пуста: добавьте свои серверы и записи через интерфейс.
-Данные сохраняются в `~/.local/share/local-desk/`. Другой каталог можно указать
-через `python3 server.py --data-dir /path/to/data`.
+A new installation starts empty. Add your servers and records through the interface.
+Data is stored in `~/.local/share/local-desk/`. To use another directory, run
+`python3 server.py --data-dir /path/to/data`.
 
-## Работа с серверами
+## Server access
 
-Обновление статистики только читает данные по SSH. Настройка доступа — отдельное
-действие: устанавливает ключ для root и отключает вход по SSH с паролем.
-Перед этим убедитесь, что у вас есть доступ к консоли провайдера.
+Refreshing statistics only reads data over SSH. Access setup is a separate action
+that installs your SSH key and disables SSH password login. Keep access to your
+provider's console before using it.
 
-Панель предназначена для личного компьютера и слушает только localhost.
-Не публикуйте её в интернете. Ваши ключи и записи в репозиторий не входят.
+The dashboard is intended for a personal computer and listens on localhost only.
+Do not expose it to the internet. Your keys and records are not included in this repository.
 
-## Проверки
+## Checks
 
 ```sh
 mkdir -p tmp
@@ -46,4 +46,4 @@ python3 -m unittest discover -s tests
 node tests/frontend_performance.mjs
 ```
 
-Для проверки интерфейса нужен Node.js.
+The frontend checks require Node.js.
